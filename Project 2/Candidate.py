@@ -113,7 +113,7 @@ class Candidate:
         print("Branch:", self.candidateBranch)
         print("Status:", self.candidateStatus)
         print("FEC Candidate ID:", self.fecCandidateID)
-        print("FEC Committee ID:", self.fecCommitteID)
+        print("FEC Committee ID:", self.fecCommitteeID)
         print("CRP ID:", self.candidateCRP)
         print("Candidate URL:")
         print(self.candidateURL)
