@@ -23,6 +23,7 @@ def searchByState(userInput: str) -> None:
         print(candidate.getCandidateName())
     main()
 
+
 def searchByDistrict(userInput: str) -> None:
     print("Here are all the candidates running in your district:")
     for state in midtermCandidates:
@@ -33,6 +34,7 @@ def searchByDistrict(userInput: str) -> None:
             if candidate.getCandidateDistrict() == userInput:
                 print(candidate.getCandidateName())
     main()
+
 
 def searchByBranch(userInput: str) -> None:
     print("Here are all the candidates running for your branch of Congress:")
@@ -45,6 +47,7 @@ def searchByBranch(userInput: str) -> None:
                 print(candidate.getCandidateName())
     main()
 
+
 def searchByFECCandidateID(userInput: str) -> None:
     print("Here is the candidate that matches this FEC Candidate ID:")
     for state in midtermCandidates:
@@ -55,6 +58,7 @@ def searchByFECCandidateID(userInput: str) -> None:
             if candidate.getfecCandidateID() == userInput:
                 candidate.printCandidate()
     main()
+
 
 def searchByStatus(userInput: str) -> None:
     if userInput == 'C':
@@ -86,6 +90,7 @@ def searchByStatus(userInput: str) -> None:
                     print(candidate.getCandidateName())
     main()
 
+
 def main():
     print("Here are your search options:\n",
           "1. by state\n", "2. by district\n", "3. by branch\n",
@@ -93,11 +98,11 @@ def main():
           "6.Quit applet")
     userInput = input("Type your choice here: ")
     if int(userInput) == 1:
-        userInput = input("Which state are you looking for?" + 
+        userInput = input("Which state are you looking for?" +
                           "(abbreviations only) ")
         searchByState(userInput)
     elif int(userInput) == 2:
-        userInput = input("Which district are you looking for?" + 
+        userInput = input("Which district are you looking for?" +
                           "(numbers only) ")
         searchByDistrict(userInput)
         pass
@@ -109,8 +114,8 @@ def main():
         userInput = input("Please input the candidate's FEC Candidate ID: ")
         searchByFECCandidateID(userInput)
     elif int(userInput) == 5:
-        print("Please input one of the following statuses:\n" + 
-                          "1. C\n"+  "2. I\n" +  "3. O")
+        print("Please input one of the following statuses:\n" +
+              "1. C\n" + "2. I\n" + "3. O")
         userInput = input("Type your choice here: ")
         searchByStatus(userInput)
     elif int(userInput) == 6:
