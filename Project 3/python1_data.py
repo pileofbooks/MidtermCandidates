@@ -42,5 +42,5 @@ def CandidateList(FILENAME: str) -> list:
             #currentCandidate.setCandidateBranch(row["branch"])
             #currentCandidate.setCandidateURL(row["url"])
             #currentCandidate.setCandidateCRP(row["crp_id"])
-            candidateList[index].append(row)
+            #candidateList[index].append(currentCandidate)
     return candidateList
