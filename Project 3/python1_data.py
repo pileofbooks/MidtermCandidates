@@ -23,24 +23,20 @@ def CandidateList(FILENAME: str) -> list:
         csvReader = csv.DictReader(csvFile)
         for row in csvReader:
             index = 0
-            while row["office_state"] != stateList[index]:
-                    if index < len(stateList) - 1:
-                        index += 1
-            #currentCandidate = Candidate(newCandidate[0], newCandidate[1],
-                                         #newCandidate[2], newCandidate[3],
-                                         #newCandidate[4], newCandidate[5],
-                                        #newCandidate[6], newCandidate[7],
-                                         #newCandidate[8], newCandidate[9])
-            #currentCandidate = Candidate()
-            #currentCandidate.setfecCandidateID(row["fec_candidate_id"])
-            #currentCandidate.setCandidateName(row["name"])
-            #currentCandidate.setCandidateParty(row["party"])
-            #currentCandidate.setCandidateStatus(row["status"])
-            #currentCandidate.setfecCommitteeID(row["fec_committee_id"])
-            #currentCandidate.setCandidateState(row["office_state"])
-            #currentCandidate.setCandidateDistrict(row["district"])
-            #currentCandidate.setCandidateBranch(row["branch"])
-            #currentCandidate.setCandidateURL(row["url"])
-            #currentCandidate.setCandidateCRP(row["crp_id"])
-            #candidateList[index].append(currentCandidate)
+            while row["office_state"] != stateList[index] and index < (len(stateList) - 1):
+                index += 1
+
+            currentCandidate = Candidate()
+            currentCandidate.setfecCandidateID(row["fec_candidate_id"])
+            currentCandidate.setCandidateName(row["name"])
+            currentCandidate.setCandidateParty(row["party"])
+            currentCandidate.setCandidateStatus(row["status"])
+            currentCandidate.setfecCommitteeID(row["fec_committee_id"])
+            currentCandidate.setCandidateState(row["office_state"])
+            currentCandidate.setCandidateDistrict(int(row["district"]))
+            currentCandidate.setCandidateBranch(row["branch"])
+            currentCandidate.setCandidateURL(row["url"])
+            currentCandidate.setCandidateCRP(row["crp_id"])
+            candidateList[index].append(currentCandidate)
+
     return candidateList

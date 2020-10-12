@@ -18,20 +18,6 @@ class Candidate:
         self.candidateURL = ""
         self.candidateCRP = ""
 
-    def __init__(self, newfecCandidateID: str, newName: str, newParty: str,
-                 newStatus: str, newfecCommitteeID: str, newState: str,
-                 newDistrict: int, newBranch: str, newURL: str,
-                 newCRP: str):
-        self.fecCandidateID = newfecCandidateID
-        self.candidateName = newName
-        self.candidateParty = newParty
-        self.candidateStatus = newStatus
-        self.fecCommitteeID = newfecCommitteeID
-        self.candidateState = newState
-        self.candidateDistrict = newDistrict
-        self.candidateBranch = newBranch
-        self.candidateURL = newURL
-        self.candidateCRP = newCRP
 
     def setfecCandidateID(self, newID: str) -> None:
         "sets the new FEC(Federal Election Commission) candidate ID"

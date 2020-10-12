@@ -119,7 +119,7 @@ def main():
         userInput = input("Type your choice here: ")
         searchByStatus(userInput)
     elif int(userInput) == 6:
-        quit
+        exit(0)
     else:
         print("Please choose a valid option!")
         main()
