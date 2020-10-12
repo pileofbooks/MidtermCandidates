@@ -13,6 +13,7 @@ statesList = python1_data.stateList
 
 
 def searchByState(userInput: str) -> None:
+    "prints all candidates running in said state"
     index = 0
     while userInput != statesList[index]:
         index += 1
@@ -24,19 +25,24 @@ def searchByState(userInput: str) -> None:
     main()
 
 
-def searchByDistrict(userInput: str) -> None:
+def searchByDistrict(userInput: str, userInput2: str) -> None:
+    "prints all candidates running in said congressional district"
     print("Here are all the candidates running in your district:")
-    for state in midtermCandidates:
-        candidate = 0
-        for candidate in state:
-            if candidate == state[0]:
-                continue
-            if candidate.getCandidateDistrict() == userInput:
+    index = 0
+    while (userInput != statesList[index] and
+           index < len(statesList) - 1):
+        index += 1
+    for candidate in midtermCandidates[index]:
+        if candidate == midtermCandidates[index][0]:
+            continue
+        else:
+            if str(candidate.getCandidateDistrict()) == userInput2:
                 print(candidate.getCandidateName())
     main()
 
 
 def searchByBranch(userInput: str) -> None:
+    "prints all candidates running in said branch of congress"
     print("Here are all the candidates running for your branch of Congress:")
     for state in midtermCandidates:
         candidate = 0
@@ -49,6 +55,7 @@ def searchByBranch(userInput: str) -> None:
 
 
 def searchByFECCandidateID(userInput: str) -> None:
+    "prints the profile of the candidate that matches said FEC Candidate ID"
     print("Here is the candidate that matches this FEC Candidate ID:")
     for state in midtermCandidates:
         candidate = 0
@@ -61,6 +68,7 @@ def searchByFECCandidateID(userInput: str) -> None:
 
 
 def searchByStatus(userInput: str) -> None:
+    "prints all candidates that match said status"
     if userInput == 'C':
         print("Here are all the challengers:")
         for state in midtermCandidates:
@@ -102,9 +110,11 @@ def main():
                           "(abbreviations only) ")
         searchByState(userInput)
     elif int(userInput) == 2:
-        userInput = input("Which district are you looking for?" +
+        userInput = input("Which state are you looking for?" +
+                          "(abbreviations only) ")
+        userInput2 = input("Which district are you looking for?" +
                           "(numbers only) ")
-        searchByDistrict(userInput)
+        searchByDistrict(userInput, userInput2)
         pass
     elif int(userInput) == 3:
         userInput = input("Which branch of Congress are you looking into?" +
@@ -119,6 +129,7 @@ def main():
         userInput = input("Type your choice here: ")
         searchByStatus(userInput)
     elif int(userInput) == 6:
+        print("All done! Have a good day!")
         exit(0)
     else:
         print("Please choose a valid option!")

@@ -23,17 +23,18 @@ def CandidateList(FILENAME: str) -> list:
         csvReader = csv.DictReader(csvFile)
         for row in csvReader:
             index = 0
-            while row["office_state"] != stateList[index] and index < (len(stateList) - 1):
+            while (row["office_state"] != stateList[index] and
+                   index < len(stateList) - 1):
                 index += 1
 
             currentCandidate = Candidate()
             currentCandidate.setfecCandidateID(row["fec_candidate_id"])
-            currentCandidate.setCandidateName(row["name"])
+            currentCandidate.setCandidateName(row["name"].upper())
             currentCandidate.setCandidateParty(row["party"])
             currentCandidate.setCandidateStatus(row["status"])
             currentCandidate.setfecCommitteeID(row["fec_committee_id"])
             currentCandidate.setCandidateState(row["office_state"])
-            currentCandidate.setCandidateDistrict(int(row["district"]))
+            currentCandidate.setCandidateDistrict(row["district"])
             currentCandidate.setCandidateBranch(row["branch"])
             currentCandidate.setCandidateURL(row["url"])
             currentCandidate.setCandidateCRP(row["crp_id"])

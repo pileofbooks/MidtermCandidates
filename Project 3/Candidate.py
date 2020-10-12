@@ -18,7 +18,6 @@ class Candidate:
         self.candidateURL = ""
         self.candidateCRP = ""
 
-
     def setfecCandidateID(self, newID: str) -> None:
         "sets the new FEC(Federal Election Commission) candidate ID"
         self.fecCandidateID = newID
@@ -43,7 +42,7 @@ class Candidate:
         "sets new candidate state"
         self.candidateState = newState
 
-    def setCandidateDistrict(self, newDistrict: int) -> None:
+    def setCandidateDistrict(self, newDistrict: str) -> None:
         "sets new candidate district"
         self.candidateDistrict = newDistrict
 
