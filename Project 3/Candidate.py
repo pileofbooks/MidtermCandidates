@@ -6,17 +6,30 @@
 
 class Candidate:
     "contains the candidate's profile"
-    def __init__(self):
-        self.fecCandidateID = ""
-        self.candidateName = ""
-        self.candidateParty = ""
-        self.candidateStatus = ""
-        self.fecCommitteeID = ""
-        self.candidateState = ""
-        self.candidateDistrict = -1
-        self.candidateBranch = ""
-        self.candidateURL = ""
-        self.candidateCRP = ""
+    #def __init__(self):
+    #    self.fecCandidateID = ""
+    #    self.candidateName = ""
+    #    self.candidateParty = ""
+    #    self.candidateStatus = ""
+    #    self.fecCommitteeID = ""
+    #    self.candidateState = ""
+    #    self.candidateDistrict = -1
+    #    self.candidateBranch = ""
+    #    self.candidateURL = ""
+    #    self.candidateCRP = ""
+    def __init__(self, newfecCandID, newName, newParty, newStatus,
+                 newCommID, newState, newDistrict, newBranch, newURL,
+                 newCRP):
+        self.fecCandidateID = newfecCandID
+        self.candidateName = newName
+        self.candidateParty = newParty
+        self.candidateStatus = newStatus
+        self.fecCommitteeID = newCommID
+        self.candidateState = newState
+        self.candidateDistrict = newDistrict
+        self.candidateBranch = newBranch
+        self.candidateURL = newURL
+        self.candidateCRP = newCRP
 
     def setfecCandidateID(self, newID: str) -> None:
         "sets the new FEC(Federal Election Commission) candidate ID"

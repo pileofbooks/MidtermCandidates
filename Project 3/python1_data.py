@@ -27,17 +27,24 @@ def CandidateList(FILENAME: str) -> list:
                    index < len(stateList) - 1):
                 index += 1
 
-            currentCandidate = Candidate()
-            currentCandidate.setfecCandidateID(row["fec_candidate_id"])
-            currentCandidate.setCandidateName(row["name"].upper())
-            currentCandidate.setCandidateParty(row["party"])
-            currentCandidate.setCandidateStatus(row["status"])
-            currentCandidate.setfecCommitteeID(row["fec_committee_id"])
-            currentCandidate.setCandidateState(row["office_state"])
-            currentCandidate.setCandidateDistrict(row["district"])
-            currentCandidate.setCandidateBranch(row["branch"])
-            currentCandidate.setCandidateURL(row["url"])
-            currentCandidate.setCandidateCRP(row["crp_id"])
+            currentCandidate = Candidate(row['fec_candidate_id'],
+                                         row['name'], row['party'],
+                                         row['status'],
+                                         row['fec_committee_id'],
+                                         row['office_state'],
+                                         row['district'], row['branch'],
+                                         row['url'], row['crp_id'])
+            #currentCandidate = Candidate()
+            #currentCandidate.setfecCandidateID(row["fec_candidate_id"])
+            #currentCandidate.setCandidateName(row["name"].upper())
+            #currentCandidate.setCandidateParty(row["party"])
+            #currentCandidate.setCandidateStatus(row["status"])
+            #currentCandidate.setfecCommitteeID(row["fec_committee_id"])
+            #currentCandidate.setCandidateState(row["office_state"])
+            #currentCandidate.setCandidateDistrict(row["district"])
+            #currentCandidate.setCandidateBranch(row["branch"])
+            #currentCandidate.setCandidateURL(row["url"])
+            #currentCandidate.setCandidateCRP(row["crp_id"])
             candidateList[index].append(currentCandidate)
 
     return candidateList
