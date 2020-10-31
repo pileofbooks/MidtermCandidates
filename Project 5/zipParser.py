@@ -14,14 +14,25 @@ FILENAME2 = 'ZIP_CD_092018.csv'
 
 
 def FIPSSearcher(searchNum: int) -> str:
-    with open(FILENAME) as csvFile:
-        csvReader = csv.DictReader(csvFile)
-        while csvReader[
-
-def zipList(file1, file2) -> list:
-    with open(FILENAME2) as csvFile:
+    state = ''
+    with open(FILENAME1) as csvFile:
         csvReader = csv.DictReader(csvFile)
         for row in csvReader:
-            zipNumber = row['zip']
+            if row['FIPS'] == searchNum:
+                state = row['Abbreviation']
+    return state
+        
+
+def zipList(dataFile: str) -> list:
+    with open(dataFile) as csvFile:
+        csvReader = csv.DictReader(csvFile)
+        for row in csvReader:
+            zipNumber = int(row['zip'])
+            if zipNumber < 1000:
+                zipNumber = '00' + str(zipNumber)
+                # print(zipNumber)
+            elif zipNumber < 10000:
+                zipNumber = '0' + str(zipNumber)
+                # print(zipNumber)
             
             
