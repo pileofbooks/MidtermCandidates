@@ -13,6 +13,9 @@ FILENAME1 = 'State_FIPS_Codes.csv'
 FILENAME2 = 'ZIP_CD_092018.csv'
 
 
+for index in range(len(stateList)):
+    state = stateList[index]
+
 def FIPSSearcher(searchNum: int) -> str:
     state = ''
     with open(FILENAME1) as csvFile:
@@ -31,8 +34,13 @@ def zipList(dataFile: str) -> list:
             if zipNumber < 1000:
                 zipNumber = '00' + str(zipNumber)
                 # print(zipNumber)
-            elif zipNumber < 10000:
+            elif (zipNumber > 1000 and zipNumber < 10000):
                 zipNumber = '0' + str(zipNumber)
                 # print(zipNumber)
-            
-            
+            newZip = ZipCode(zipNumber, int(row['cd'] / 1000),
+                             (row['cd'] % 100),
+                             FIPSSearcher((row['cd'] % 100)))
+            index = 0
+            stateAbbrev = newZip.getState()
+            while (index < len(stateList) and
+                   stateAbbrev != 
