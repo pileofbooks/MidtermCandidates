@@ -13,9 +13,6 @@ FILENAME1 = 'State_FIPS_Codes.csv'
 FILENAME2 = 'ZIP_CD_092018.csv'
 
 
-for index in range(len(stateList)):
-    state = stateList[index]
-
 def FIPSSearcher(searchNum: int) -> str:
     state = ''
     with open(FILENAME1) as csvFile:
@@ -26,7 +23,8 @@ def FIPSSearcher(searchNum: int) -> str:
     return state
         
 
-def zipList(dataFile: str) -> list:
+def ZipList(dataFile: str) -> list:
+    zipList = [[state] for state in stateList]
     with open(dataFile) as csvFile:
         csvReader = csv.DictReader(csvFile)
         for row in csvReader:
@@ -43,4 +41,6 @@ def zipList(dataFile: str) -> list:
             index = 0
             stateAbbrev = newZip.getState()
             while (index < len(stateList) and
-                   stateAbbrev != 
+                   stateAbbrev != stateList[index]):
+                index += 1
+            
