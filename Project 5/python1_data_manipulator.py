@@ -41,6 +41,7 @@ zipList = ZipParser.ZipList(ZipParser.FILENAME2)
 ##            if str(candidate.getCandidateDistrict()) == userInput2:
 ##                print(candidate.getCandidateName())
 
+<<<<<<< Updated upstream
 def ZipListSearcher(dataString: str):
     "nested loop to find the zip code data associated with said code"
     for state in zipList:
@@ -52,12 +53,40 @@ def ZipListSearcher(dataString: str):
                zipCode = ZipCode(everyZip.getZip(), everyZip.getFIPS(),
                                  everyZip.getDistrict(), everyZip.getState())
 
+=======
+def ZipListSearcher(dataString: str) -> ZipCode:
+    "nested loop to find the zip code data associated with said code"
+    listIndex = 0
+    subListIndex = 1
+    zipFound = False
+##    while (listIndex < len(zipList) and zipFound != True):
+##        print(zipList[listIndex][0])
+##        if zipFound == True:
+##            break
+##        elif subListIndex < len(zipList[listIndex]):
+##            while (subListIndex < len(zipList) and zipFound != True):
+##                if zipFound == True:
+##                    break
+##                elif zipList[listIndex][subListIndex].getZip() == dataString:
+##                    zipFound = True
+##                else:
+##                    print(zipList[listIndex][subListIndex].getZip())
+##                    subListIndex += 1
+##        else:
+##            subListIndex = 1
+##            print(listIndex)
+##            listIndex += 1
+    for state in zipList:
+    print(listIndex)
+    print(subListIndex)
+>>>>>>> Stashed changes
 
 
 def searchByZip(userInput: str) -> None:
     "locates your local candidate by zip code data"
     print("Here are your local candidates:")
     # nested loop to find the zip code data associated with said code
+<<<<<<< Updated upstream
     zipCode = 0
     for state in zipList:
         for everyZip in state:
@@ -67,6 +96,9 @@ def searchByZip(userInput: str) -> None:
             if everyZip.getZip() == userInput:
                 zipCode = ZipCode(everyZip.getZip(), everyZip.getFIPS(),
                                   everyZip.getDistrict(), everyZip.getState())
+=======
+    zipCode = ZipListSearcher(userInput)
+>>>>>>> Stashed changes
     # nested for loop to find the candidate whose data matches the zip data
     print(zipCode)
     for state in midtermCandidates:
