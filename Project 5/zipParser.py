@@ -45,7 +45,7 @@ def ZipList(dataFile: str) -> list:
             elif (zipNumber > 1000 and zipNumber < 10000):
                 zipNumber = '0' + str(zipNumber)
                 # print(zipNumber)
-            newZip = ZipCode(zipNumber, int(cd / 1000),
+            newZip = ZipCode(zipNumber, int(cd / 100),
                              (cd % 100),
                              FIPSSearcher(cd % 100))
             # print(newZip)

@@ -52,9 +52,7 @@ def ZipListSearcher(userInput1: str, userInput2: str) -> list:
     for zipCode in zipList[listIndex]:
         if zipCode == zipList[listIndex][0]:
             continue
-        temp = zipCode.getZip()
-        if isinstance(temp, str) == False:
-            temp = str(temp)
+        temp = str(zipCode.getZip())
         print(temp)
         if temp == userInput2:
             zipCodeMatches.append(zipCode)
