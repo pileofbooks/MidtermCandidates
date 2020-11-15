@@ -36,3 +36,12 @@ creates a 2D list of states where each state sublist contains candidates associa
 __Global Variables__
 * FILENAME: str, contains name of the candidates_2018_0921_edited.csv file
 * stateList: array containing the names of US States + American Samoa
+
+__Functions__
+* CandidateList: takes a str containing a filename
+  * takes the candidate csv file and imports them into a 2D list
+  * returns 2D list with Candidate objects sorted by state
+
+###ZipCodeClass.py
+__Class Variables__
+* 
