@@ -41,30 +41,24 @@ zipList = ZipParser.ZipList(ZipParser.FILENAME2)
 ##            if str(candidate.getCandidateDistrict()) == userInput2:
 ##                print(candidate.getCandidateName())
 
-def ZipListSearcher(dataString: str):
+def ZipListSearcher(userInput1: str, userInput2: str) -> list:
     "nested loop to find the zip code data associated with said code"
+    zipCodeMatches = []
     listIndex = 0
-    subListIndex = 1
-    zipFound = False
-    while (listIndex < len(zipList) and zipFound != True):
-        print(zipList[listIndex][0])
-        if zipFound == True:
-            break
-        elif subListIndex < len(zipList[listIndex]):
-            while (subListIndex < len(zipList) and zipFound != True):
-                if zipFound == True:
-                    break
-                elif zipList[listIndex][subListIndex].getZip() == dataString:
-                    zipFound = True
-                else:
-                    print(zipList[listIndex][subListIndex].getZip())
-                    subListIndex += 1
-        else:
-            subListIndex = 1
-            print(listIndex)
-            listIndex += 1
-    print(listIndex)
-    print(subListIndex)
+    while userInput1 != statesList[listIndex]:
+        listIndex += 1
+    assert userInput1 == statesList[listIndex]
+    print(zipList[listIndex][0])
+    for zipCode in zipList[listIndex]:
+        if zipCode == zipList[listIndex][0]:
+            continue
+        temp = zipCode.getZip()
+        if isinstance(temp, str) == False:
+            temp = str(temp)
+        print(temp)
+        if temp == userInput2:
+            zipCodeMatches.append(zipCode)
+    return zipCodeMatches
 
 
 def searchByZip(userInput: str) -> None:
