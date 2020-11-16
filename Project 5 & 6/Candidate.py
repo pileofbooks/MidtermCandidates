@@ -127,6 +127,8 @@ class Candidate:
         print("Status:", self.candidateStatus)
         print("FEC Candidate ID:", self.fecCandidateID)
         print("FEC Committee ID:", self.fecCommitteeID)
-        print("CRP ID:", self.candidateCRP)
-        print("Candidate URL:")
-        print(self.candidateURL)
+        if self.candidateCRP:
+            print("CRP ID:", self.candidateCRP)
+        if self.candidateURL:
+            print("Candidate URL:")
+            print(self.candidateURL)

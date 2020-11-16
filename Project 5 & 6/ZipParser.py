@@ -13,6 +13,15 @@ FILENAME1 = 'State_FIPS_Codes.csv'
 FILENAME2 = 'ZIP_CD_092018.csv'
 
 
+def ZipNumberProcessor(dataString: str) -> str:
+    dataString = int(dataString)
+    if (dataString < 10000 and dataString > 1000):
+        dataString = '0' + str(dataString)
+    elif (dataString < 1000):
+        dataString = '00' + str(dataString)
+    return dataString
+        
+
 def FIPSSearcher(searchNum: int) -> str:
     "takes an int and looks through the key to find the state abbreviation"
     state = ''
@@ -22,38 +31,33 @@ def FIPSSearcher(searchNum: int) -> str:
             if int(row['FIPS']) == searchNum:
                 state = row['Abbreviation']
     return state
-        
 
 def ZipList(dataFile: str) -> list:
     "sorts zip codes into a 2d list of states using the ZipCode class"
     zipList = [[state] for state in stateList]
     with open(dataFile) as csvFile:
         csvReader = csv.DictReader(csvFile)
+        counter = 0
         for row in csvReader:
             cd = row['cd']
             if cd.isdigit() == False:
                 # some of the cd numbers are not ints, so cannot be processed
+                # print('cd is not an int')
                 continue
-            else:
-                cd = int(cd)
-            if (int(cd / 100) > 60):
+            cd = int(cd)
+            fips = int(cd / 100)
+            if fips > 60:
+                # print('fips > 60')
                 continue
-            zipNumber = int(row['zip'])
-            if zipNumber < 1000:
-                zipNumber = '00' + str(zipNumber)
-                # print(zipNumber)
-            elif (zipNumber > 1000 and zipNumber < 10000):
-                zipNumber = '0' + str(zipNumber)
-                # print(zipNumber)
-            newZip = ZipCode(zipNumber, int(cd / 100),
-                             (cd % 100),
-                             FIPSSearcher(cd % 100))
-            # print(newZip)
-            index = 0
-            stateAbbrev = newZip.getState()
+            district = cd % 100
+            stateAbbrev = FIPSSearcher(fips)
+            zipNumber = ZipNumberProcessor(int(row['zip']))
+            newZip = ZipCode(zipNumber, fips, district, stateAbbrev)
             # print(stateAbbrev)
             for state in zipList:
                 # print(state[0])
                 if state[0] == stateAbbrev:
+                    counter += 1
                     state.append(newZip)
+    # print(counter)
     return zipList
