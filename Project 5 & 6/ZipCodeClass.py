@@ -12,22 +12,6 @@ class ZipCode:
         self.district = newDistrict
         self.state = newState
 
-    def setZip(self, newZip: str) -> None:
-        "changes self's zip code info"
-        self.zipCode = newZip
-
-    def setFIPS(self, newFIPS: int) -> None:
-        "changes self's FIPS code"
-        self.FIPS = newFIPS
-        
-    def setDistrict(self, newDistrict: int) -> None:
-        "changes self's district number"
-        self.district = newDistrict
-
-    def setState(self, newState: str) -> None:
-        "changes self's state"
-        self.state = newState
-
     def getZip(self) -> str:
         "returns self's zip code info"
         return self.zipCode
