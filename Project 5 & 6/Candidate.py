@@ -122,7 +122,8 @@ class Candidate:
         print("Candidate Profile:")
         print("Name:", self.candidateName)
         print("Party:", self.candidateParty)
-        print("Location:", self.candidateState + ',', self.candidateDistrict)
+        print("Location:", "State of", self.candidateState + ',',
+              "District", self.candidateDistrict)
         print("Branch:", self.candidateBranch)
         print("Status:", self.candidateStatus)
         print("FEC Candidate ID:", self.fecCandidateID)
