@@ -31,9 +31,10 @@ def ZipListSearcher(userInput1: str, userInput2: str) -> list:
             zipCodeMatches.append(zipCode)
     return zipCodeMatches
 
-def searchByZip(dataList: list) -> None:
+def searchByZip(dataList: list) -> None: # updated to return list for tkinter
     "locates your local candidate by zip code data"
-    print("\nHere are your local candidates:")
+    # print("\nHere are your local candidates:")
+    result = []
     # nested for loop to find the candidate whose data matches the zip data
     for zipCode in dataList:
         district = zipCode.getDistrict()
@@ -48,7 +49,8 @@ def searchByZip(dataList: list) -> None:
             if candidate == midtermCandidates[index][0]:
                 continue
             if int(candidate.getCandidateDistrict()) == district:
-                print(candidate.getCandidateName())
+                # print(candidate.getCandidateName())
+                result.append(candidate)
                 
 def searchByBranch(userInput: str) -> None:
     "prints all candidates running in said branch of Congress"
