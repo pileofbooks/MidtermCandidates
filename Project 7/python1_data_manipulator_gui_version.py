@@ -59,7 +59,7 @@ def searchByBranch(userInput: str) -> list:
 
 
 def searchByFECCandidateID(userInput: str) -> list:
-    "prints the profile of the candidate that matches said FEC Candidate ID"
+    "returns the profile of the candidate that matches said FEC Candidate ID"
     result = 0
     for state in midtermCandidates:
         candidate = 0
@@ -72,34 +72,39 @@ def searchByFECCandidateID(userInput: str) -> list:
 
 
 def searchByStatus(userInput: str) -> None:
-    "prints all candidates that match said status"
+    "returns list of all candidates that match said status"
+    result = []
     if userInput == 'C':
-        print("\nHere are all the challengers:")
+        # print("\nHere are all the challengers:")
         for state in midtermCandidates:
             candidate = 0
             for candidate in state:
                 if candidate == state[0]:
                     continue
                 if candidate.getCandidateStatus() == 'Challenger':
-                    print(candidate.getCandidateName())
+                    # print(candidate.getCandidateName())
+                    result.append(candidate)
     elif userInput == 'I':
-        print("\nHere are all the incumbents:")
+        # print("\nHere are all the incumbents:")
         for state in midtermCandidates:
             candidate = 0
             for candidate in state:
                 if candidate == state[0]:
                     continue
                 if candidate.getCandidateStatus() == 'Incumbent':
-                    print(candidate.getCandidateName())
+                    # print(candidate.getCandidateName())
+                    result.append(candidate)
     elif userInput == 'O':
-        print("\nHere are all those competing for open seats:")
+        # print("\nHere are all those competing for open seats:")
         for state in midtermCandidates:
             candidate = 0
             for candidate in state:
                 if candidate == state[0]:
                     continue
                 if candidate.getCandidateStatus() == 'Open':
-                    print(candidate.getCandidateName())
+                    # print(candidate.getCandidateName())
+                    result.append(candidate)
+    return result
 
 
 # old UI
