@@ -26,7 +26,8 @@ def help():
     popup.geometry('480x600')
     popup.title("User Guide")
     label = tk.Label(popup,
-                     text="Below is a help menu for this search engine!")
+                     text="Below is a help menu for this search engine!",
+                     font=('Times)
     label.font.configure(size=20)
     lable.grid(column=5, row=1)
 
