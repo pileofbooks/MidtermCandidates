@@ -116,25 +116,31 @@ def main():
     userInput = input("Type your choice here: ")
     print('')
     if int(userInput) == 1:
-        userInput = input("Which state are you in? " +
-                          "(abbreviations only) ")
-        userInput2 = input("Input your zip code: ")
-        searchByZip(ZipListSearcher(userInput, userInput2))
+        userInput = input("Input your zip code: ")
+        result = searchByZip(ZipListSearcher(userInput))
+        for item in result:
+            print(item.getCandidateName())
         main()
     elif int(userInput) == 2:
         userInput = input("Which branch of Congress are you looking into?" +
                           "(Type H or S) ")
-        searchByBranch(userInput)
+        result = searchByBranch(userInput)
+        for item in result:
+            print(item.getCandidateName())
         main()
     elif int(userInput) == 3:
         userInput = input("Please input the candidate's FEC Candidate ID: ")
-        searchByFECCandidateID(userInput)
+        result = searchByFECCandidateID(userInput)
+        for item in result:
+            print(item.getCandidateName())
         main()
     elif int(userInput) == 4:
         print("Please input one of the following statuses:\n" +
               "1. C\n" + "2. I\n" + "3. O")
         userInput = input("Type your choice here: ")
-        searchByStatus(userInput)
+        result = searchByStatus(userInput)
+        for item in result:
+            print(item.getCandidateName())
         main()
     elif int(userInput) == 5:
         print("All done! Have a good day!")
@@ -148,4 +154,5 @@ if __name__ == "__main__":
           "I'll get you information on your candidates in your area\n" +
           "for the upcoming 2018 midterm elections!\n" +
           "Let's get started~")
+    print('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
     main()
