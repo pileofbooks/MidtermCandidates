@@ -30,6 +30,7 @@ midterm_candidates_tuple = [
     ("McClintock, Tom", "REP", 4, "H"),
     ("Morse, Jessica", "DEM", 4, "H")]
 
+
 class MidtermCandidates:
     def __init__(self):
         self._name = ""
